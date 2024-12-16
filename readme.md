@@ -6,7 +6,7 @@ A simple utility method to run a process from Java using Loom structured concurr
 The `ProcessBuilder` api requires us to read the standard output and standard error in separate threads.  
 Also we need to destroy the process after we are done with it. For error cases as well.  
 Running a process is unpredictable; we need to specify a timeout.  
-We want the process id before we start waiting for the process to finish. So we can test error scenarios where the process is killed by the OS or Kuberneter.
+We want the process id before we start waiting for the process to finish. So we can test error scenarios where the process is killed by the OS or by Kubernetes.
 
 Loom structured concurrency can help us with this. The blocking calls can be handled with lightweight Loom threads. And the structured concurrency helps us make sure to clean up resources.
 
