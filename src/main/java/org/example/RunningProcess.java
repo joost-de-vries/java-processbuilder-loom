@@ -52,10 +52,8 @@ public class RunningProcess implements AutoCloseable {
             process.destroy();
         } catch (Exception _) {
         }
-        try {
-            scope.close();
-        } catch (Exception _) {
-        }
+
+        scope.close();
     }
 
     public Process getProcess() {
@@ -67,7 +65,7 @@ public class RunningProcess implements AutoCloseable {
     private final Duration timeoutAfter;
     private final StructuredTaskScope.ShutdownOnFailure scope;
 
-    static byte[] readInputStream(BufferedInputStream inputStream) throws IOException {
+    private static byte[] readInputStream(BufferedInputStream inputStream) throws IOException {
         try (inputStream) {
             return inputStream.readAllBytes();
         }

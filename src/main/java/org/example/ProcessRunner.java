@@ -5,7 +5,7 @@ import java.time.Duration;
 import java.util.Optional;
 
 public class ProcessRunner {
-    static RunningProcess startProcess(String[] cmd, byte[] stdin, Duration timeoutAfter) throws IOException {
+    public static RunningProcess startProcess(String[] cmd, byte[] stdin, Duration timeoutAfter) throws IOException {
         return startProcessInternal(cmd, Optional.of(stdin), timeoutAfter);
     }
 
